@@ -27,11 +27,7 @@ CSPは許可リスト方式なので、**新しい外部URLを使うコードを
 
 - 公開URL: https://golf-pairing.my-sakura.workers.dev
 
-### 初回のみ必要な設定
-
-Cloudflareダッシュボード → Workers & Pages → `golf-pairing` → 設定 → ビルド →
-「リポジトリに接続」で、このリポジトリと `main` ブランチを指定する。
-デプロイコマンドは `npx wrangler deploy`、ビルドコマンドは空欄。
+Cloudflare側のGit連携は設定済み（2026-09-16）。以降は`main`にpushするだけで反映される。
 
 ## 経緯
 
