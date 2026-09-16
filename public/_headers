@@ -1,0 +1,15 @@
+# Cloudflare Pages / Workers（静的アセット）用のヘッダー設定
+# 1ファイルのアプリなので、更新したらすぐ反映されるように HTML はキャッシュさせない。
+
+/*
+  Cache-Control: no-cache
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=()
+  # このページが通信してよい相手を、会場探しで使う4サービスだけに限定する。
+  # ここに無いサーバーへの送信はブラウザ側で遮断されるので、
+  # 「名前や履歴が外に出ない」という画面の説明が技術的にも裏づけられる。
+  # 設定＞詳細でURLを自分で変えたときは、その相手をここに足さないと通信が遮断される。
+  # 例：ロシアのミラーを足す場合は connect-src の末尾に https://maps.mail.ru を追加する。
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://msearch.gsi.go.jp https://overpass-api.de https://overpass.kumi.systems https://router.project-osrm.org https://routing.openstreetmap.de; base-uri 'none'; form-action 'none'; frame-ancestors 'none'

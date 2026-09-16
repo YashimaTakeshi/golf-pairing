@@ -1,0 +1,8 @@
+{
+  "name": "golf-pairing",
+  "compatibility_date": "2026-09-16",
+  "preview_urls": false,
+  "assets": {
+    "directory": "./public"
+  }
+}
